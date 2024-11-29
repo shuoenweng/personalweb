@@ -508,8 +508,9 @@
 
     <button id="backToTop" title="Go to top">Top</button>
 
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-
+       
       
         //back to top button
 
@@ -653,6 +654,7 @@
                    };
        
                    // Send the email via EmailJS
+                   emailjs.debugMode = true;
                    emailjs.send("service_c7lsuag", "template_dqv2l8m", formData)
                        .then(function (response) {
                            console.log("SUCCESS!", response.status, response.text);
