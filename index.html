@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopify E-commerce Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <script>
+        
+                const toggle = item.querySelector('.faq-toggle');
+                
+                    if (answer.style.display === 'none') {
+                        answer.style.display = 'block';
+                        toggle.textContent = '-';
+                    } else {
+                        answer.style.display = 'none';
+                        toggle.textContent = '+';
+                    }
+                    answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+                              // Get the button
+               
+      
+    </script>
+    <style>
+        #backToTop {
+            display: none; /* Hidden by default */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99; /* Ensure it's on top */
+            background-color: #4CAF50; /* Green background */
+            color: black;
+            border: none;
+            outline: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.3s ease;
+        }
+        
+        #backToTop:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: #333;
+        }
+
+        .resume-section {
+            margin: 20px 0;
+        }
+
+        .resume-section h3 {
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #4CAF50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .resume-section .toggle {
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .resume-content {
+            display: none;
+            margin-top: 10px;
+            padding-left: 10px;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills-list li {
+            background: #ddd;
+            padding: 5px 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .skill-bar {
+            margin: 10px 0;
+        }
+
+        .skill-bar .bar {
+            background-color: #ddd;
+            border-radius: 5px;
+            height: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-bar .progress {
+            background-color: #4CAF50;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .resume-download {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .resume-download .btn {
+            text-decoration: none;
+            color: white;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .resume-download .btn:hover {
+            background-color: #45a049;
+        }
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        .cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cart-items {
+            display: none;
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            width: 200px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        .cart-item {
+            margin-bottom: 10px;
+        }
+        .checkout-btn {
+            background-color: #4caf50;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .skill-box {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        .skill-box img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .faq {
+            margin-top: 50px;
+        }
+        .faq h2 {
+            margin-bottom: 20px;
+        }
+        .faq-item {
+            margin-bottom: 15px;
+        }
+        .faq-item p {
+            margin: 0;
+        }
+    
+        .faq-question {
+            cursor: pointer;
+        }
+        .faq-answer {
+            display: none;
+        }
+    
+        .faq-question {
+            cursor: pointer;
+            position: relative;
+            display: inline-block;
+            padding-right: 20px;
+        }
+        .faq-toggle {
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-weight: bold;
+        }
+        .faq-answer {
+            display: none;
+        }
+        .horizontal-nav {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            background-color: #333; /* Dark background */
+            padding: 0;
+            margin: 0;
+        }
+        
+        .horizontal-nav li {
+            margin: 0;
+        }
+        
+        .horizontal-nav li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .horizontal-nav li a:hover {
+            background-color: #4CAF50; /* Highlight on hover */
+            color: white;
+        }
+        
+        .horizontal-nav li a.active {
+            background-color: #4CAF50; /* Active link style */
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <!-- Header Section -->
+   
+        <header>
+            <nav>
+                <ul class="horizontal-nav">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#portfolio">Resume</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+        </header>
+        
+        
+    </header>
+
+    <section id="resume">
+        <h2>My Resume</h2>
+        <div class="resume-section">
+            <h3>Education</h3>
+            <p><strong>Boston University</strong> – Bachelor’s in Computer Science (2020 - 2024)</p>
+            <p>Relevant Courses:Web Development, Computer Systems, Data Structures, Functional Programming, Artificial Intelligence, Software Engineering, Databases, Machine Learning, NLP</p>
+        </div>
+    
+        <div class="resume-section">
+            <h3>Skills</h3>
+            <ul class="skills-list">
+                <li>Java</li>
+                <li>Python</li>
+                <li>HTML, CSS, JavaScript</li>
+                <li>AWS, Docker, Kubernetes</li>
+                <li>SQL, MySQL, MongoDB</li>
+            </ul>
+        </div>
+    
+        <div class="resume-section">
+            <h3>Experience</h3>
+            <div class="experience-item">
+                <h4>Acer Gadget – Summer SWE Intern (Jun 2023 - Aug 2023)</h4>
+                <ul>
+                    <li>Developed a multi-platform healthcare app using Flutter, Vue, Dart, and Go.</li>
+                    <li>Integrated MySQL for backend efficiency and supported app scalability.</li>
+                    <li>Collaborated with Taiwan’s largest hospital to align app functionalities with healthcare standards.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h4>Freelance Developer (May 2024 - Present)</h4>
+                <ul>
+                    <li>Created a construction monitoring web app with Node.js and MongoDB backend.</li>
+                    <li>Implemented AWS Elastic Beanstalk for scalable hosting.</li>
+                    <li>Streamlined user workflows with features like automated data sorting and role-based access.</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="resume-section">
+            <h3>Projects</h3>
+            <div class="project-item">
+                <h4>Maze Solver</h4>
+                <p>Developed a Java program using the A* search algorithm to solve complex mazes dynamically.</p>
+            </div>
+            <div class="project-item">
+                <h4>AI Battle Agents</h4>
+                <p>Built a feed-forward neural network to optimize Q-value predictions for decision-making in simulated environments.</p>
+            </div>
+        </div>
+    
+        <div class="resume-download">
+            <a href="resume.pdf" download class="btn">Download Full Resume</a>
+        </div>
+    </section>
+    
+      
+    <button id="backToTop" title="Go to top">Top</button>
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>My Skills</h2>
+        <p>Click on a skill below to add it to your cart.</p>
+        <div class="skill-box add-to-cart" data-skill="HTML">
+            
+            <p>HTML</p>
+        </div>
+        <div class="skill-box add-to-cart" data-skill="CSS">
+        
+            <p>CSS</p>
+        </div>
+        <div class="skill-box add-to-cart" data-skill="JavaScript">
+     
+            <p>JavaScript</p>
+        </div>
+        <div class="skill-box add-to-cart" data-skill="React.js">
+        
+            <p>React.js</p>
+        </div>
+        <div class="skill-box add-to-cart" data-skill="Node.js">
+           
+            <p>Node.js</p>
+        </div>
+        <div class="skill-box add-to-cart" data-skill="Java">
+         
+            <p>Java</p>
+        </div>
+        <div class="skill-box add-to-cart" data-skill="Python">
+         
+            <p>Python</p>
+        </div>
+        <div class="skill-box add-to-cart" data-skill="SQL">
+         
+            <p>SQL</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <h2>Frequently Asked Questions</h2>
+    
+        <div class="faq-item">
+            <h4 class="faq-question">
+                What experience do you have with e-commerce platforms like Shopify?
+                <span class="faq-toggle">+</span>
+            </h4>
+            <p class="faq-answer">
+                I have hands-on experience working with Shopify, customizing themes, templates, and pages using the Liquid templating language. I’ve also developed and optimized features for Shopify-based e-commerce sites, ensuring a seamless user experience and high performance.
+            </p>
+        </div>
+    
+        <div class="faq-item">
+            <h4 class="faq-question">
+                What programming languages and tools are you proficient in for web development?
+                <span class="faq-toggle">+</span>
+            </h4>
+            <p class="faq-answer">
+                I am proficient in HTML, CSS, JavaScript, and SQL. Additionally, I have experience with, AWS, Docker, GitHub, and MongoDB, which are integral to building and maintaining scalable web applications.
+            </p>
+        </div>
+    
+        <div class="faq-item">
+            <h4 class="faq-question">
+                Can you describe a project that demonstrates your skills in web development?
+                <span class="faq-toggle">+</span>
+            </h4>
+            <p class="faq-answer">
+                I developed a comprehensive construction monitoring web application featuring a secure Node.js and MongoDB backend with multi-level authentication. This project included creating user-friendly templates and optimizing the application for performance and responsiveness. I also hosted the app on AWS, ensuring reliable scalability.
+            </p>
+        </div>
+    
+        <div class="faq-item">
+            <h4 class="faq-question">
+                How do you ensure the performance and responsiveness of websites?
+                <span class="faq-toggle">+</span>
+            </h4>
+            <p class="faq-answer">
+                I use best practices in web development, such as optimizing code, leveraging caching mechanisms, and ensuring cross-browser compatibility. Additionally, I test performance metrics regularly and refine features to enhance load times and responsiveness across devices.
+            </p>
+        </div>
+    
+        <div class="faq-item">
+            <h4 class="faq-question">
+                How do you collaborate with teams like designers and marketers?
+                <span class="faq-toggle">+</span>
+            </h4>
+            <p class="faq-answer">
+                I prioritize clear communication and adaptability in team environments. I’ve collaborated with UX/UI designers to implement user-friendly designs and worked alongside marketers to integrate dynamic web solutions that align with campaign goals.
+            </p>
+        </div>
+    
+        <div class="faq-item">
+            <h4 class="faq-question">
+                What is your experience with troubleshooting technical issues?
+                <span class="faq-toggle">+</span>
+            </h4>
+            <p class="faq-answer">
+                I have extensive experience debugging and resolving issues in web applications. For example, I resolved backend API integration issues for a construction monitoring app, ensuring a seamless data flow and eliminating downtime during deployment.
+            </p>
+        </div>
+    
+        <div class="faq-item">
+            <h4 class="faq-question">
+                How do you stay updated on web development trends?
+                <span class="faq-toggle">+</span>
+            </h4>
+            <p class="faq-answer">
+                I regularly engage in continuous learning by following industry blogs, attending webinars, and exploring the latest features and tools in platforms like Shopify and AWS. Staying current allows me to integrate innovative solutions into my projects.
+            </p>
+        </div>
+    
+        <div class="faq-item">
+            <h4 class="faq-question">
+                What motivates you to work in web development for an e-commerce company?
+                <span class="faq-toggle">+</span>
+            </h4>
+            <p class="faq-answer">
+                I am passionate about creating seamless online experiences that resonate with users and drive business growth. Working in e-commerce excites me because it combines creativity with technical problem-solving to achieve impactful results.
+            </p>
+        </div>
+    
+        <div class="faq-item">
+            <h4 class="faq-question">
+                What makes you a good fit for the Junior Web Developer role at Bimmer Plug?
+                <span class="faq-toggle">+</span>
+            </h4>
+            <p class="faq-answer">
+                My strong foundation in web development, coupled with my experience in client communcation, aligns perfectly with this role. I thrive in fast-paced, innovative environments and am eager to contribute to Bimmer Plug’s mission of helping automotive enthusiasts achieve their dream builds.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>If you're interested in working with me or learning more about my work, feel free to reach out.</p>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send Message</button>
+            <div id="formResponse" style="color: green; display: none;">Your message has been sent successfully!</div>
+            <div id="formError" style="color: red; display: none;">An error occurred. Please try again later.</div>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; All Rights Reserved.</p>
+    </footer>
+
+    <!-- Shopping Cart Section -->
+    <div class="cart" id="cart">Cart (<span id="cartCount">0</span>)</div>
+    <div class="cart-items" id="cartItems">
+        <h4>Cart Items</h4>
+        <div id="cartContent"></div>
+        <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    </div>
+
+    <button id="backToTop" title="Go to top">Top</button>
+
+    <script>
+
+        //contact form funciton 
+        document.getElementById("contactForm").addEventListener("submit", async function (event) {
+            event.preventDefault(); // Prevent the default form submission
+    
+            // Get form data
+            const formData = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                message: document.getElementById("message").value,
+            };
+    
+            try {
+                // Send form data to the backend
+                const response = await fetch("/contact", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(formData),
+                });
+    
+                const result = await response.json();
+    
+                if (response.ok) {
+                    document.getElementById("formResponse").style.display = "block";
+                    document.getElementById("formResponse").textContent = result.message;
+                    document.getElementById("formError").style.display = "none";
+                    document.getElementById("contactForm").reset(); // Reset the form
+                } else {
+                    throw new Error(result.error);
+                }
+            } catch (error) {
+                document.getElementById("formError").style.display = "block";
+                document.getElementById("formError").textContent = error.message || "An error occurred. Please try again later.";
+                document.getElementById("formResponse").style.display = "none";
+            }
+        });
+        //back to top button
+
+        const backToTopButton = document.getElementById("backToTop");
+
+        // Show the button when scrolling down
+        window.onscroll = function () {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+
+        // Scroll to the top when the button is clicked
+        backToTopButton.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+        // Smooth scrolling navigation highlighting
+        document.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 50) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        document.querySelectorAll('.resume-section h3').forEach(sectionHeader => {
+            sectionHeader.addEventListener('click', () => {
+                const content = sectionHeader.nextElementSibling;
+                const toggle = sectionHeader.querySelector('.toggle');
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                    toggle.textContent = '+';
+                } else {
+                    content.style.display = 'block';
+                    toggle.textContent = '-';
+                }
+            });
+        });
+        // Form validation
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const formError = document.getElementById('formError');
+
+            if (!name || !email || !message) {
+                event.preventDefault();
+                formError.style.display = 'block';
+                formError.textContent = 'Please fill out all fields correctly.';
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                event.preventDefault();
+                formError.style.display = 'block';
+                formError.textContent = 'Please enter a valid email address.';
+            } else {
+                formError.style.display = 'none';
+            }
+        });
+
+        // Shopping Cart Functionality
+        const cart = document.getElementById('cart');
+        const cartItems = document.getElementById('cartItems');
+        const cartContent = document.getElementById('cartContent');
+        const cartCount = document.getElementById('cartCount');
+        let itemsInCart = [];
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const skill = button.getAttribute('data-skill');
+                itemsInCart.push(skill);
+                updateCart();
+            });
+        });
+
+        cart.addEventListener('click', () => {
+            cartItems.style.display = cartItems.style.display === 'none' || cartItems.style.display === '' ? 'block' : 'none';
+        });
+
+        function updateCart() {
+            cartCount.textContent = itemsInCart.length;
+            cartContent.innerHTML = '';
+            itemsInCart.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.classList.add('cart-item');
+                div.textContent = item;
+                cartContent.appendChild(div);
+            });
+        }
+
+        function checkout() {
+            if (itemsInCart.length > 0) {
+                const message = `I am interested in discussing the following skills: ${itemsInCart.join(', ')}`;
+                document.getElementById('message').value = message;
+                window.location.href = '#contact';
+            } else {
+                alert('Your cart is empty. Please add skills to the cart before checking out.');
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const faqToggles = document.querySelectorAll('.faq-question');
+    
+            faqToggles.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling; // Get the corresponding answer element
+                    const toggle = question.querySelector('.faq-toggle');
+    
+                    if (answer.style.display === 'block') {
+                        answer.style.display = 'none';
+                        toggle.textContent = '+'; // Update toggle text to '+'
+                    } else {
+                        answer.style.display = 'block';
+                        toggle.textContent = '-'; // Update toggle text to '-'
+                    }
+                });
+            });
+        });
+
+  
+    </script>
+    
+</body>
+</html>
